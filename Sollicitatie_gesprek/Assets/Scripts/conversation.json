@@ -1,0 +1,35 @@
+{
+    "start": [
+        {
+            "ID": 1,
+            "name": "NPC",
+            "text": "Hello, how are you?",
+            "choices": [
+                { "text": "I'm good", "next": 2 },
+                { "text": "I'm bad", "next": 3 }
+            ]
+        },
+        {
+            "ID": 2,
+            "name": "NPC",
+            "text": "That's great to hear!",
+            "choices": [
+                { "text": "Goodbye", "next": 0 }
+            ]
+        },
+        {
+            "ID": 3,
+            "name": "NPC",
+            "text": "I'm sorry to hear that.",
+            "choices": [
+                { "text": "Goodbye", "next": 0 }
+            ]
+        },
+        {
+            "ID": 0,
+            "name": "NPC",
+            "text": "Goodbye!",
+            "choices": []
+        }
+    ]
+}
