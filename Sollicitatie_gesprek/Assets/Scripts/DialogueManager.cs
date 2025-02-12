@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueJson == null)
         {
+            // Exit the method if dialogueJson is null to prevent null reference errors
             return;
         }
 
@@ -51,22 +52,22 @@ public class DialogueManager : MonoBehaviour
     void ShowNode(DialogueNode node)
     {
         currentNode = node;
-        dialoguetext.text = node.text; // Update dialogue text
-        npcnametext.text = node.name;  // Update NPC name
+        dialoguetext.text = node.text;
+        npcnametext.text = node.name;
 
-        // ❌ Clear previous buttons (to avoid duplicate choices)
+        // Clear previous buttons
         foreach (Transform child in choicesContainer.transform)
         {
             Destroy(child.gameObject);
         }
 
-        // ✅ Generate choice buttons for the new dialogue node
+        // Generate choice buttons for the new dialogue node
         foreach (var choice in node.choices)
         {
             GameObject newButton = Instantiate(choiceButtonPrefab, choicesContainer.transform);
             newButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
 
-            // ✅ Ensure button calls ChooseOption() with the correct index
+            // Ensure button calls ChooseOption() with the correct index
             int choiceIndex = node.choices.IndexOf(choice);
             newButton.GetComponent<Button>().onClick.AddListener(() => ChooseOption(choiceIndex));
         }
@@ -74,31 +75,34 @@ public class DialogueManager : MonoBehaviour
 
     public void ChooseOption(int choiceIndex)
     {
+        // Check if the current node is null or if the choice index is out of bounds
         if (currentNode == null || choiceIndex < 0 || choiceIndex >= currentNode.choices.Count)
         {
-            Debug.LogError("Invalid choice!");
-            return;
+            Debug.LogError("Invalid choice!"); // Log an error message
+            return; // Exit the method
         }
 
+        // Get the ID of the next dialogue node based on the chosen option
         int nextId = currentNode.choices[choiceIndex].next;
 
-        // If there is no valid next ID, end the dialogue
-        if (nextId == 0)  // You can also check if it's -1 or any "end" indicator
+        // If the next ID is 0 (or another end indicator), end the dialogue
+        if (nextId == 0)
         {
-            dialoguePanel.SetActive(false); // Hide dialogue UI
-            return;
+            dialoguePanel.SetActive(false); // Hide the dialogue UI
+            return; // Exit the method
         }
 
-        // Find the next node by its ID
+        // Find the next dialogue node by its ID
         DialogueNode nextNode = dialogueNodes.Find(node => node.ID == nextId);
 
+        // If the next node is found, show it
         if (nextNode != null)
         {
             ShowNode(nextNode);
         }
         else
         {
-            dialoguePanel.SetActive(false); // Hide dialogue UI
+            dialoguePanel.SetActive(false); // Hide the dialogue UI if the node is not found
         }
     }
 }
