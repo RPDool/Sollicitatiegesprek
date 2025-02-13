@@ -2,33 +2,33 @@
     "start": [
         {
             "ID": 1,
-            "name": "NPC",
-            "text": "Hello, how are you?",
+            "name": "StageMan",
+            "text": "Hey, mijn naam is Bob",
             "choices": [
-                { "text": "I'm good", "next": 2 },
-                { "text": "I'm bad", "next": 3 }
+                { "text": "Ik ben Jan", "next": 2 },
+                { "text": "YOOOOO", "next": 3 }
             ]
         },
         {
             "ID": 2,
-            "name": "NPC",
-            "text": "That's great to hear!",
+            "name": "StageMan",
+            "text": "Leuk je te ontmoeten Jan! Hoe gaat het met je?",
             "choices": [
                 { "text": "Goodbye", "next": 0 }
             ]
         },
         {
             "ID": 3,
-            "name": "NPC",
-            "text": "I'm sorry to hear that.",
+            "name": "StageMan",
+            "text": "WAT EEN BRUTAAL VENTJE BEN JIJ!",
             "choices": [
                 { "text": "Goodbye", "next": 0 }
             ]
         },
         {
             "ID": 0,
-            "name": "NPC",
-            "text": "Goodbye!",
+            "name": "",
+            "text": "",
             "choices": []
         }
     ]
