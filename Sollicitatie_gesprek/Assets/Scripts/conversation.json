@@ -14,7 +14,8 @@
             "name": "StageMan",
             "text": "Leuk je te ontmoeten Jan! Hoe gaat het met je?",
             "choices": [
-                { "text": "Goodbye", "next": 0 }
+                { "text": "ja goed toch broer", "next": 3 },
+                { "text": "Heel goed hoor, met u?", "next": 4 }
             ]
         },
         {
@@ -22,7 +23,24 @@
             "name": "StageMan",
             "text": "WAT EEN BRUTAAL VENTJE BEN JIJ!",
             "choices": [
-                { "text": "Goodbye", "next": 0 }
+                { "text": "SORRYYYYY", "next": 0 }
+            ]
+        },
+        {
+            "ID": 4,
+            "name": "StageMan",
+            "text": "Met mij gaat het ook goed. Waar heb je allemaal ervaring mee?",
+            "choices": [
+                { "text":"Ik heb ervaring met Unity, C# en Json", "next": 5},
+                { "text":"Nog niet zo veel, heb bijna niks gedaan", "next": 0}
+            ]
+        },
+        {
+            "ID": 5,
+            "name": "StageMan",
+            "text": "Oke, dan ben je nu aangenomen",
+            "choices": [
+                { "text":"JOEPIE", "next": 0}
             ]
         },
         {
