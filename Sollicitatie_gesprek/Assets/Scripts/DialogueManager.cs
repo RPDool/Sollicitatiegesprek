@@ -78,18 +78,18 @@ public class DialogueManager : MonoBehaviour
         // Check if the current node is null or if the choice index is out of bounds
         if (currentNode == null || choiceIndex < 0 || choiceIndex >= currentNode.choices.Count)
         {
-            Debug.LogError("Invalid choice!"); // Log an error message
-            return; // Exit the method
+            Debug.LogError("Invalid choice!");
+            return;
         }
 
         // Get the ID of the next dialogue node based on the chosen option
         int nextId = currentNode.choices[choiceIndex].next;
 
-        // If the next ID is 0 (or another end indicator), end the dialogue
+        // If the next ID is 0 end the dialogue
         if (nextId == 0)
         {
             dialoguePanel.SetActive(false); // Hide the dialogue UI
-            return; // Exit the method
+            return;
         }
 
         // Find the next dialogue node by its ID
